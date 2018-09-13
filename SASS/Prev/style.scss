@@ -1,0 +1,802 @@
+﻿@import "helpers/font";
+@import "helpers/settings";
+@import "helpers/mixins";
+
+/* Fix the height jump */
+html {
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: get-key($colours, dark-grey);
+    min-height: 100%;
+    @include font('lato-light');
+    font-size: 62.5%;
+}
+
+.gridContainer {
+    background: get-key($colours, white);
+    padding: 0 10px;
+    margin: 0 auto;
+    color: get-key($colours, white);
+}
+
+/*
+    page header
+*/
+.header {
+    order: -1;
+    display: flex;
+    align-items: flex-end;
+
+    img {
+        width: 170px !important;
+    }
+
+    nav {
+        background-color: white;
+        z-index: 2;
+
+        ul {
+            display: flex;
+            flex-flow: column nowrap;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            width: 100px;
+        }
+    }
+}
+/*
+    Homepage blocks
+*/
+.block {
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: bottom right;
+    padding: 10px;
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        margin: 0;
+
+        &.caps {
+            font-size: 1.3em;
+            text-transform: uppercase;
+        }
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .blockFooter {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        &.noFooterTitle {
+            justify-content: flex-end;
+        }
+
+        &:after {
+            @include font('awesome');
+            content: '\f055';
+            font-size: 3em;
+            opacity: .5;
+        }
+    }
+    
+    &.blockNum-17 {
+        display: none;
+    }
+}
+
+@include respond-to(small) {
+
+    .gridContainer {
+        width: 310px;
+    }
+}
+
+@include respond-to(medium) {
+
+    .gridContainer {
+        width: 700px;
+        padding: 0 20px;
+    }
+
+    .header {
+        justify-content: space-between;
+
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            width: 400px;
+
+            li {
+                list-style: none;
+                flex: 0 0 auto;
+                align-self: flex-end;
+
+                a {
+                    color: #66665d;
+                    font-size: 1.5em;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-weight: 700;
+
+                    &:hover {
+                        color: get-key($colours, orange);
+                    }
+
+                    &.highlight {
+                        color: get-key($colours, orange);
+
+                        &:hover {
+                            color: get-key($colours, dark-grey);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include respond-to(large) {
+
+    .gridContainer {
+        width: 1180px;
+    }
+}
+
+/*
+    define the grid properties
+*/
+@supports (display: grid) {
+
+    .gridContainer {
+        display: grid;
+        grid-gap: 10px;
+    }
+
+    .type-a {
+        grid-column: span 2;
+    }
+
+    .type-c {
+        grid-column: span 2;
+    }
+
+    .type-b,
+    .type-c {
+        grid-row: span 2;
+    }
+
+
+    @include respond-to(small) {
+
+        .gridContainer {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 40px 1fr 85px;
+        }
+
+        .home {
+            .gridContainer {
+                grid-template-rows: 40px repeat(auto-fill, 85px) 85px;
+                grid-auto-rows: 85px;
+            }
+        }
+
+        .header,
+        .footer,
+        .content {
+            grid-column: span 2;
+        }
+
+        .content {
+            padding: 0 20px;
+        }
+        /*
+            Ordering for Grid - display correctly
+        */
+        .blockNum-1 {
+            order: 1;
+        }
+
+        .blockNum-2 {
+            order: 7;
+        }
+
+        .blockNum-3 {
+            order: 2;
+        }
+
+        .blockNum-4 {
+            order: 3;
+        }
+
+        .blockNum-5 {
+            order: 4;
+        }
+
+        .blockNum-6 {
+            order: 5;
+        }
+
+        .blockNum-7 {
+            order: 9;
+        }
+
+        .blockNum-8 {
+            order: 11;
+        }
+
+        .blockNum-9 {
+            order: 10;
+        }
+
+        .blockNum-10 {
+            order: 7;
+        }
+
+        .blockNum-11 {
+            order: 14;
+        }
+
+        .blockNum-12 {
+            order: 8;
+        }
+
+        .blockNum-13 {
+            order: 12;
+        }
+
+        .blockNum-14 {
+            order: 13;
+        }
+
+        .blockNum-15 {
+            order: 16;
+        }
+
+        .blockNum-16 {
+            order: 15;
+        }
+
+        .blockNum-17 {
+            display: none;
+            order: 17;
+        }
+    }
+
+    @include respond-to(medium) {
+
+        .gridContainer {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 70px 1fr 140px;
+            grid-gap: 20px;
+        }
+
+        .home {
+            .gridContainer {
+                grid-template-rows: 70px repeat(auto-fill, 140px) 140px;
+                grid-auto-rows: 140px;
+            }
+        }
+
+        .header,
+        .footer,
+        .content {
+            grid-column: span 3;
+        }
+        /*
+            Ordering for Grid - display correctly
+        */
+        .blockNum-1 {
+            order: 1;
+        }
+
+        .blockNum-2 {
+            order: 7;
+        }
+
+        .blockNum-3 {
+            order: 3;
+        }
+
+        .blockNum-4 {
+            order: 2;
+        }
+
+        .blockNum-5 {
+            order: 4;
+        }
+
+        .blockNum-6 {
+            order: 9;
+        }
+
+        .blockNum-7 {
+            order: 10;
+        }
+
+        .blockNum-8 {
+            order: 13;
+        }
+
+        .blockNum-9 {
+            order: 6;
+        }
+
+        .blockNum-10 {
+            order: 12;
+        }
+
+        .blockNum-11 {
+            order: 10;
+        }
+
+        .blockNum-12 {
+            order: 8;
+        }
+
+        .blockNum-13 {
+            order: 11;
+        }
+
+        .blockNum-14 {
+            order: 15;
+        }
+
+        .blockNum-15 {
+            order: 16;
+        }
+
+        .blockNum-16 {
+            order: 14;
+        }
+
+        .blockNum-17 {
+            display: block;
+            order: 17;
+        }
+    }
+
+    @include respond-to(large) {
+
+        .gridContainer {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .header,
+        .footer {
+            grid-column: span 5;
+        }
+
+        .content {
+            grid-column: 2 / 5;
+        }
+
+        .content {
+            padding: 0;
+        }
+        /*
+            Ordering for Grid - display correctly
+        */
+        .blockNum-1 {
+            order: 1;
+        }
+
+        .blockNum-2 {
+            order: 2;
+        }
+
+        .blockNum-3 {
+            order: 4;
+        }
+
+        .blockNum-4 {
+            order: 5;
+        }
+
+        .blockNum-5 {
+            order: 7;
+        }
+
+        .blockNum-6 {
+            order: 8;
+        }
+
+        .blockNum-7 {
+            order: 15;
+        }
+
+        .blockNum-8 {
+            order: 14;
+        }
+
+        .blockNum-9 {
+            order: 3;
+        }
+
+        .blockNum-10 {
+            order: 16;
+        }
+
+        .blockNum-11 {
+            order: 12;
+        }
+
+        .blockNum-12 {
+            order: 6;
+        }
+
+        .blockNum-13 {
+            order: 9;
+        }
+
+        .blockNum-14 {
+            order: 10;
+        }
+
+        .blockNum-15 {
+            order: 13;
+        }
+
+        .blockNum-16 {
+            order: 11;
+        }
+
+        .blockNum-17 {
+            display: none;
+            order: 17;
+        }
+    }
+}
+
+
+/*
+    IE 11 doesn't support @supports
+    so use the below hack for IE 10 and 11.
+*/
+@media screen and (-ms-high-contrast: active) and (-ms-high-contrast: none) {
+    /* IE10+ specific styles go here */
+
+    .gridContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .gridContainer {
+        .block {
+            flex: 0 1 auto;
+            margin: 2px;
+        }
+    }
+
+    .header, .footer {
+        width: 100%;
+    }
+
+    .header {
+        height: 85px;
+        margin-bottom: 5px;
+    }
+
+    .footer {
+        height: 85px;
+        margin-top: 5px;
+    }
+
+    .type-a {
+        width: 300px;
+        height: 85px;
+    }
+
+    .type-b {
+        width: 145px;
+        height: 180px;
+    }
+
+    .type-c {
+        width: 300px;
+        height: 180px;
+    }
+
+    .type-d {
+        width: 145px;
+        height: 85px;
+    }
+}
+
+@media screen and (-ms-high-contrast: active) and (-ms-high-contrast: none) and (min-width: 310px) {
+
+    .blockNum-1 {
+        order: 1;
+    }
+
+    .blockNum-2 {
+        order: 4;
+    }
+
+    .blockNum-3 {
+        order: 7;
+    }
+
+    .blockNum-4 {
+        order: 5;
+    }
+
+    .blockNum-5 {
+        order: 2;
+    }
+
+    .blockNum-6 {
+        order: 3;
+    }
+
+    .blockNum-7 {
+        order: 14;
+    }
+
+    .blockNum-8 {
+        order: 15;
+    }
+
+    .blockNum-9 {
+        order: 6;
+    }
+
+    .blockNum-10 {
+        order: 9;
+    }
+
+    .blockNum-11 {
+        order: 11;
+    }
+
+    .blockNum-12 {
+        order: 8;
+    }
+
+    .blockNum-13 {
+        order: 10;
+    }
+
+    .blockNum-14 {
+        order: 13;
+    }
+
+    .blockNum-15 {
+        order: 16;
+    }
+
+    .blockNum-16 {
+        order: 12;
+    }
+
+    .blockNum-17 {
+        order: 17;
+    }
+}
+
+@media screen and (-ms-high-contrast: active) and (-ms-high-contrast: none) and (min-width: 760px) {
+
+    .gridContainer {
+        .block {
+            margin: 5px;
+        }
+    }
+
+    .type-a {
+        width: 460px;
+        height: 140px;
+    }
+
+    .type-b {
+        width: 220px;
+        height: 300px;
+    }
+
+    .type-c {
+        width: 460px;
+        height: 300px;
+    }
+
+    .type-d {
+        width: 220px;
+        height: 140px;
+    }
+
+    .header {
+        height: 70px;
+    }
+
+    .footer {
+        height: 140px;
+    }
+
+    .blockNum-1 {
+        order: 1;
+    }
+
+    .blockNum-2 {
+        order: 4;
+    }
+
+    .blockNum-3 {
+        order: 5;
+    }
+
+    .blockNum-4 {
+        order: 3;
+    }
+
+    .blockNum-5 {
+        order: 2;
+    }
+
+    .blockNum-6 {
+        order: 7;
+    }
+
+    .blockNum-7 {
+        order: 14;
+    }
+
+    .blockNum-8 {
+        order: 15;
+    }
+
+    .blockNum-9 {
+        order: 6;
+    }
+
+    .blockNum-10 {
+        order: 8;
+    }
+
+    .blockNum-11 {
+        order: 10;
+    }
+
+    .blockNum-12 {
+        order: 9;
+    }
+
+    .blockNum-13 {
+        order: 12;
+    }
+
+    .blockNum-14 {
+        order: 13;
+    }
+
+    .blockNum-15 {
+        order: 16;
+    }
+
+    .blockNum-16 {
+        order: 11;
+    }
+
+    .blockNum-17 {
+        order: 17;
+    }
+}
+
+@media screen and (-ms-high-contrast: active) and (-ms-high-contrast: none) and (min-width: 1240px) {
+
+    .blockNum-1 {
+        order: 1;
+    }
+
+    .blockNum-2 {
+        order: 5;
+    }
+
+    .blockNum-3 {
+        order: 6;
+    }
+
+    .blockNum-4 {
+        order: 4;
+    }
+
+    .blockNum-5 {
+        order: 3;
+    }
+
+    .blockNum-6 {
+        order: 14;
+    }
+
+    .blockNum-7 {
+        order: 15;
+    }
+
+    .blockNum-8 {
+        order: 16;
+    }
+
+    .blockNum-9 {
+        order: 9;
+    }
+
+    .blockNum-10 {
+        order: 2;
+    }
+
+    .blockNum-11 {
+        order: 10;
+    }
+
+    .blockNum-12 {
+        order: 7;
+    }
+
+    .blockNum-13 {
+        order: 8;
+    }
+
+    .blockNum-14 {
+        order: 11;
+    }
+
+    .blockNum-15 {
+        order: 12;
+    }
+
+    .blockNum-16 {
+        order: 13;
+    }
+
+    .blockNum-17 {
+        order: 17;
+    }
+}
+
+
+
+
+
+
+.content {
+    order: 1;
+}
+
+.footer {
+    order: 18;
+}
+
+.orange {
+    background-color: get-key($colours, orange);
+}
+
+.blue {
+    background-color: get-key($colours, blue);
+}
+
+.green {
+    background-color: get-key($colours, green);
+}
+
+.maroon {
+    background-color: get-key($colours, maroon);
+}

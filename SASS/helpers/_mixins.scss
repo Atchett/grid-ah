@@ -1,0 +1,81 @@
+﻿
+/* === FUNCTIONS === */
+/* 
+    * function to get a key from the map
+    * checks and returns an error if required
+    * to use in place of map-get (for error)
+    * e.g.
+    * get-key($fonts, fontawesome);
+*/
+@function get-key($map, $key) {
+
+    // get the width block count
+    @if map-has-key($map, $key) {
+        @return map-get($map, $key);
+    }
+
+    @warn "The key #{$key} is not in the map.";
+    @return null;
+}
+
+/*
+    function to output all the repeating
+    parameters of an IE grid grid setup
+    e.g. in IE you can do:
+    (85px 10px)[20] - repeat 85px 10px 20 times
+    SASS doesn't recognise this!
+*/
+@function ie-grid-params($values-string, $repeat){
+    $output: null;
+    @for $i from 1 to $repeat {
+        $output: $output $values-string;
+    }
+
+    @return $output;
+}
+
+
+/* === MIXINS === */
+
+@mixin font($font) {
+    font-family: get-key($fonts, $font);
+}
+
+/* generate the relevant code for the media query breakpoint */
+/* https://www.sitepoint.com/managing-responsive-breakpoints-sass/ */
+@mixin respond-to($name) {
+    // If the key exists in the map
+    @if map-has-key($breakpoints, $name) {
+        // Prints a media query based on the value
+        @media #{inspect(get-key($breakpoints, $name))} {
+            @content;
+        }
+    }
+    // If the key doesn't exist in the map
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Please make sure it is defined in `$breakpoints` map.";
+    }
+}
+
+/* Fill entire area with clickable link */
+@mixin fillin {
+    background: get-key($colours, white);
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+@mixin grid{
+    display: grid;
+    display: -ms-grid;
+}
+
+@mixin outPut-ms-grid-properties($col, $row) {
+    -ms-grid-column: $col;
+    -ms-grid-row: $row;
+}

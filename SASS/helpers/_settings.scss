@@ -1,0 +1,27 @@
+﻿
+$breakpoints: ( 
+    'small' : ( min-width: 310px ), 
+    'small-max' : ( max-width: 759px ), 
+    'medium' : ( min-width: 760px ), 
+    'medium-max' : ( max-width: 1239px ), 
+    'large' : ( min-width: 1240px ) 
+);
+
+$fonts: ( 
+    lato: 'LatoWeb', 
+    lato-light: 'LatoWebLight', 
+    lato-black: 'LatoWebBlack', 
+    awesome: 'FontAwesome' 
+);
+
+$colours: ( 
+    orange: #f28b00, 
+    blue: #6a8aaa,
+    green: #afb744,
+    teal: #46a8a8,
+    maroon: #8a5668,
+    dark-grey: #66665d,
+    white: #fff,
+    background-grey: #999,
+    black: #000 
+);
