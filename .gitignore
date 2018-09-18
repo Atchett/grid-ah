@@ -1,4 +1,7 @@
 #ignore directories
-dist
-node_modules
-.vscode
+
+/src/About/about.html
+/node_modules
+/package-lock.json
+/package.json
+/dist

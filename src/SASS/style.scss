@@ -83,6 +83,11 @@ body {
         }
     }
 
+    a {
+        line-height: 0;
+        font-size: 0;
+        color: transparent;
+    }
     /*a {
         @include fillin;
 
@@ -350,6 +355,12 @@ footer {
                 li {
                     a {
                         font-size: 2.2em;
+
+                        span {
+                            color: transparent;
+                            font-size: 0;
+                            line-height: 0;
+                        }
                     }
                     // linkedIn
                     &:nth-child(1) {

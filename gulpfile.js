@@ -9,16 +9,12 @@ var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var cache = require('gulp-cache');
 
 // Set the browser that you want to support
+// autoprefixer defaults = > 0.5%, last 2 versions, Firefox ESR, not dead
 const AUTOPREFIXER_BROWSERS = [
-    'ie >= 10',
-    'ff >= 30',
-    'chrome >= 34',
-    'safari >= 7',
-    'opera >= 23',
-    'ios >= 7',
-    'android >= 4.4'
+    'defaults'
   ];
 
   // Gulp task to minify CSS files
@@ -67,12 +63,17 @@ gulp.task('fonts', function() {
 // images
 gulp.task('images', function(){
     return gulp.src('./src/images/**/*.*')
-      .pipe(imagemin())
+      .pipe(cache(imagemin()))
       .pipe(gulp.dest('./dist/images/'));
 })
 
 // Clean output directory
 gulp.task('clean', () => del(['dist']));
+
+// clear the gulp cache
+gulp.task('cache:clear', function (callback) {
+  return cache.clearAll(callback)
+})
 
 // Gulp task to minify all files
 gulp.task('default', ['clean'], function () {
