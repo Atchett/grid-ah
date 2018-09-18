@@ -1,0 +1,29 @@
+{
+  "name": "gridah",
+  "version": "1.0.0",
+  "description": "A local environment to minify CSS, JS, & HTML files",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://john_spurgin@bitbucket.org/johnpersonal/gridah.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/johnpersonal/gridah#readme",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-csso": "^2.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^2.1.2",
+    "gulp-webp": "^3.0.0",
+    "run-sequence": "^1.2.2"
+  },
+  "dependencies": {}
+}
