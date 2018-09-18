@@ -1,0 +1,4 @@
+#ignore directories
+dist
+node_modules
+.vscode
