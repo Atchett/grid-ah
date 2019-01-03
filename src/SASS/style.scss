@@ -37,7 +37,9 @@ body {
     grid-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 40px 1fr 85px;
-    grid-template-areas: "h h" "c c" "f f";
+    grid-template-areas:    "h h" 
+                            "c c" 
+                            "f f";
     /* define IE 10+ specific grid properties */
     -ms-grid-columns: 140px 10px 140px;
     -ms-grid-rows: 40px 10px auto 10px 85px;
@@ -47,7 +49,28 @@ body {
     .gridContainer {
         grid-template-rows: 40px repeat(auto-fill, 85px) 85px;
         grid-auto-rows: 85px;
-        grid-template-areas: "h h" "a1 a1" "c3 c3" "c3 c3" "b4 d5" "b4 b9" "d6 b9" "c2 c2" "c2 c2" "a10 a10" "c12 c12" "c12 c12" "c13 c13" "c13 c13" "d8 b16" "b11 b16" "b11 d7" "c14 c14" "c14 c14" "c15 c15" "c15 c15" "f f";
+        grid-template-areas:    "h h" 
+                                "a1 a1" 
+                                "c3 c3" 
+                                "c3 c3" 
+                                "b4 d5" 
+                                "b4 b9" 
+                                "d6 b9" 
+                                "c2 c2" 
+                                "c2 c2" 
+                                "a10 a10" 
+                                "c12 c12" 
+                                "c12 c12" 
+                                "c13 c13" 
+                                "c13 c13" 
+                                "d8 b16" 
+                                "b11 b16" 
+                                "b11 d7" 
+                                "c14 c14" 
+                                "c14 c14" 
+                                "c15 c15" 
+                                "c15 c15" 
+                                "f f";
         /* define IE 10+ specific grid properties */
         -ms-grid-rows: 40px 10px ie-grid-params(85px 10px, 21) 85px;
     }
@@ -581,7 +604,9 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 70px 1fr 140px;
         grid-gap: 20px;
-        grid-template-areas: "h h h" "c c c" "f f f";
+        grid-template-areas:    "h h h" 
+                                "c c c" 
+                                "f f f";
         /* define IE 10+ specific grid properties */
         -ms-grid-columns: ie-grid-params(205px 20px, 4) 205px;
         -ms-grid-rows: 70px 20px auto 20px 140px;
@@ -591,7 +616,22 @@ footer {
         .gridContainer {
             grid-template-rows: 70px repeat(auto-fill, 140px) 140px;
             grid-auto-rows: 140px;
-            grid-template-areas: "h h h" "a1 a1 b4" "c3 c3 b4" "c3 c3 d5" "b9 c2 c2" "b9 c2 c2" "c12 c12 d6" "c12 c12 d7" "b11 c13 c13" "b11 c13 c13" "a10 a10 d8" "b16 c14 c14" "b16 c14 c14" "c15 c15 b17" "c15 c15 b17" "f f f";
+            grid-template-areas:    "h h h" 
+                                    "a1 a1 b4" 
+                                    "c3 c3 b4" 
+                                    "c3 c3 d5" 
+                                    "b9 c2 c2" 
+                                    "b9 c2 c2" 
+                                    "c12 c12 d6" 
+                                    "c12 c12 d7" 
+                                    "b11 c13 c13" 
+                                    "b11 c13 c13" 
+                                    "a10 a10 d8" 
+                                    "b16 c14 c14" 
+                                    "b16 c14 c14" 
+                                    "c15 c15 b17" 
+                                    "c15 c15 b17" 
+                                    "f f f";
             /* define IE 10+ specific grid properties */
             -ms-grid-rows: 70px 20px ie-grid-params(140px 20px, 15) 140px;
         }
@@ -721,7 +761,9 @@ footer {
     .gridContainer {
         width: 1180px;
         grid-template-columns: repeat(5, 1fr);
-        grid-template-areas: "h h h h h" "c c c c c" "f f f f f";
+        grid-template-areas:    "h h h h h" 
+                                "c c c c c" 
+                                "f f f f f";
         /* define IE 10+ specific grid properties */
         -ms-grid-columns: ie-grid-params(212px 20px, 8) 212px;
         -ms-grid-rows: 70px 20px auto 20px 140px;
@@ -729,7 +771,16 @@ footer {
 
     .home {
         .gridContainer {
-            grid-template-areas: "h h h h h" "a1 a1 c2 c2 b9" "c3 c3 c2 c2 b9" "c3 c3 b4 d8 d7" "d5 d6 b4 c12 c12" "c13 c13 b16 c12 c12" "c13 c13 b16 a10 a10" "b11 c15 c15 c14 c14" "b11 c15 c15 c14 c14" "f f f f f";
+            grid-template-areas:    "h h h h h" 
+                                    "a1 a1 c2 c2 b9" 
+                                    "c3 c3 c2 c2 b9" 
+                                    "c3 c3 b4 d8 d7" 
+                                    "d5 d6 b4 c12 c12" 
+                                    "c13 c13 b16 c12 c12" 
+                                    "c13 c13 b16 a10 a10" 
+                                    "b11 c15 c15 c14 c14" 
+                                    "b11 c15 c15 c14 c14" 
+                                    "f f f f f";
             /* define IE 10+ specific grid properties */
             -ms-grid-rows: 70px 20px ie-grid-params(140px 20px, 9) 140px;
         }
